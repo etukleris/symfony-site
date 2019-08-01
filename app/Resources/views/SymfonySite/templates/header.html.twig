@@ -1,0 +1,26 @@
+    {% block header %}
+    <header class="header header-footer"> 
+      <h1>Titlerooni, checking out the basics</h1>
+      <nav>
+        <div class="navbar">
+          <a href="{{ url('site-index') }}">Home</a>
+          <a href="<?php echo base_url('photos')?>">Photos</a>
+          <div class="dropdown">
+            <button class="dropbtn">CSS tests 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="{{ url('css1page') }}">Css1</a>
+              <a href="{{ url('css2page') }}">Css2</a>
+              <a href="{{ url('css3page') }}">Css3</a>
+              <a href="{{ url('css4page') }}">Css4</a>
+              <a href="{{ url('css5page') }}">Css5</a>
+              <a href="{{ url('css6page') }}">Css6</a>
+            </div>
+          </div> 
+          <a href="{{ url('dummypage') }}">Dummy page</a>
+
+       </div>
+      </nav>
+    </header>
+    {% endblock %}

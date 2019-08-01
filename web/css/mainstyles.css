@@ -1,0 +1,407 @@
+/* css for mostly index (plus body background, p for all) */
+body{
+  background:url(https://i.imgur.com/MJAkxbh.png);
+}
+.div-color-test > p{color: green;}
+.div-color-test > ul >li{color: blue;}
+.div-color-test > ul > .lasagna-li {color: orange;}
+
+p {
+  font-size: 16px;
+  font-family: monospace;
+}
+
+.index-page .thick-green-border {
+  border-color: green;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+.index-page .smaller-image {
+  width: 100px;
+}
+.index-page .silver-background{
+  background-color: silver;
+}
+.index-page .div-padding-test{
+  border: 1px solid black;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px  0px 0px;
+ }
+.index-page .div-padding-test >p:first-child{
+  padding: 5px 0px 0px 5px;
+  margin: 1px 0px  0px 0px;
+}
+.index-page .div-padding-test > ul>li:first-child{
+  background-color:purple;
+}  
+.index-page .shadow-test{
+  box-shadow: 2px 1px 1px 2px grey;
+}
+
+.index-page #cat-submit-input{
+  height: 13px;
+  padding: 5px 10px 8px 10px;
+}
+.index-page #cat-submit-button{
+  border-radius: 5px;
+  color: white;
+  background-color: #0F5897;
+  padding: 5px 10px 8px 10px;
+}
+
+.index-page #cat-submit-button:hover {
+  animation-name: button-background-color;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+@keyframes button-background-color {
+  100% {
+    background-color: #4791d0;
+  } 
+}
+
+.index-page .login-success{
+  color:green;
+}
+.index-page .upload-success{
+  color:green;
+}
+.index-page .upload-failed{
+  color:red;
+}
+
+/* css for csstests1 */
+.csstest-1 .grid{
+  display:grid;
+  grid-template-columns: 70% 30%;
+  /*grid-column-gap:1em;
+  grid-row-gap:1em;*/
+  grid-gap:1em;
+}
+.csstest-1 .grid > div{
+    background:#eee;
+    padding:1em;
+}
+.csstest-1 .grid > div:nth-child(odd){
+    background:#ddd;
+}
+.csstest-1 .grid > div:nth-child(even){
+    background:green;
+    margin-right: 16px;
+}
+
+
+/* css for csstests2 */
+.csstest-2 .grid{
+    display:grid;
+    /*grid-template-columns:1fr 1fr 1fr;*/
+    grid-template-columns:repeat(3, 1fr);
+    grid-gap:1em;
+    grid-auto-rows:minmax(100px,auto);
+}
+.csstest-2 .grid > div{
+    background:#eee;
+    padding:1em;
+}
+.csstest-2 .grid > div:nth-child(odd){
+    background:#ddd;
+}
+.csstest-2 .grid > div:nth-child(even){
+    background:green;
+}
+
+.csstest-2 .nested{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-auto-rows: 70px;
+    grid-gap: 1em;
+}
+.csstest-2 .nested> div{
+    border:#333 1px solid;
+    padding:1em;
+}
+
+/* css for csstests3 */
+.csstest-3 .grid{
+    display:grid;
+    grid-template-columns:1fr 2fr 1fr;
+    grid-auto-rows:minmax(100px, auto);
+    grid-gap:1em;
+    justify-items:stretch;
+    align-items:stretch;
+}
+.csstest-3 .grid> div{
+    background:#eee;
+    padding:1em;
+}
+.csstest-3 .grid> div:nth-child(odd){
+    background:#ddd;
+}
+.csstest-3 .grid> div:nth-child(even){
+    background:green;
+}
+
+
+.csstest-3 .box1{
+    /*align-self:start;*/
+    grid-column:1/3;
+    grid-row:1/3;
+}
+
+.csstest-3 .box2{
+    /*align-self:end;*/
+    grid-column:3;
+    grid-row:1/3;
+}
+
+.csstest-3 .box3{
+    /*justify-self:end;*/
+    grid-column:2/4;
+    grid-row:3;
+}
+
+.csstest-3 .box4{
+    grid-column:1;
+    grid-row:2/4;
+    border:2px solid #333;
+}
+
+/* css for csstests4 */
+.csstest-4 .row {
+  display: table-row;
+ 
+  
+}
+.csstest-4 .inside {
+  display: table-cell;
+  
+  border-spacing:5px
+}
+.csstest-4 .inside-left {
+  background: lightgreen;
+  border: 1px solid grey;
+}
+.csstest-4 .inside-right-margin-test{
+  margin-left:10px;
+  border: 1px solid grey;
+}
+
+/* css for csstests5 */
+.csstest-5 .flex-test-container{
+  display:flex;
+  flex-wrap:wrap;
+  align-content: flex-start;
+  width:300px;
+  height:300px;
+  border-style:solid;
+  border-widht:1px;
+}
+.csstest-5 .flex-test-container > div:nth-child(odd){
+    background:#ddd;
+}
+.csstest-5 .flex-test-container > div:nth-child(even){
+    background:green;
+}
+.csstest-5 .box{
+  width:100px;
+  height:100px;
+  
+}
+
+.csstest-5 .nested-boxes{
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:column;
+  align-content:flex-start;
+}
+.csstest-5 .box-within-a-box{
+  /*border: 1px black solid;*/
+  width:20px;
+  height:20px;
+}
+.csstest-5 .box-within-a-box:nth-child(odd){
+  background:blue;
+}
+.csstest-5 .box-within-a-box:nth-child(even){
+  background:yellow;
+}
+
+/* css for csstests6 */
+    
+.csstest-6 .grid-test-container{
+  display:grid;
+  width:300px;
+  height:600px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  border-style:solid;
+  border-widht:1px;
+  grid-template-areas: 
+    "header header header"
+    ". main main"
+    "footer footer footer";
+}
+.csstest-6 .grid-test-container > div:nth-child(odd){
+    background:#ddd;
+}
+.csstest-6 .grid-test-container > div:nth-child(even){
+    background:green;
+}
+.csstest-6 .grid-test-container .box{
+  /*width:100px;*/
+  text-align:center;
+ 
+  
+  height:100px;
+ 
+}
+
+.csstest-6 .grid-test-container p{
+  vertical-align: middle;
+  margin:0px;
+  padding:0px;
+  height:100%;
+}
+
+.csstest-6 .grid-test-container .box1{
+  grid-area: header;
+  
+}
+.csstest-6 .grid-test-container .box-main{
+  grid-area:main;
+
+}
+.csstest-6 .grid-test-container .box6{
+  grid-area:footer;
+}
+.csstest-6 .grid-test-container .nested-boxes{
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:column;
+  align-content:flex-start;
+}
+.csstest-6 .grid-test-container .box-within-a-box{
+
+  width:20px;
+  height:20px;
+}
+.csstest-6 .grid-test-container .box-within-a-box:nth-child(odd){
+  background:blue;
+}
+.csstest-6 .grid-test-container .box-within-a-box:nth-child(even){
+  background:yellow;
+}
+        
+
+/*photos page css*/        
+.photos-page .posts-container{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  
+}
+.photos-page .post-images{
+  position:relative;
+  flex: 0 1 20%;
+  max-height:20%;
+  margin:auto 0 auto 0;
+}
+
+
+.photos-page .post-images .hover-image-container{
+  position:absolute;
+  background:white;
+  padding:0px 2px 0px 2px;
+  margin:0px 2px 0px 2px;
+  overflow:hidden;
+  bottom:30px;
+  visibility:hidden;
+  height:0px;
+  
+}
+.photos-page .post-images:hover .hover-image-container{
+  visibility:visible;
+  height:auto;
+}
+.photos-page .hover-image-text{
+  font-size: 12px;
+  line-height:12px;
+}
+.photos-page .user-image{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/*signup page styles*/
+.signup-page .signup-error-message{
+  width: 350px;
+  color:red; 
+  margin-left: auto;
+  margin-right: auto;
+}
+.signup-page .signup-container{
+  width: 400px; 
+  margin-left: auto; 
+  margin-right: auto; 
+  
+}
+.signup-page .signup-container ul {
+  display: table;
+}
+
+.signup-page .signup-container li {
+  display: table-row;
+  margin-left:10px;
+
+}
+
+.signup-page .signup-container .signup-label {
+  display: table-cell;
+  margin-left:10px;
+  padding:5px;
+}
+
+/*login page styles*/
+.login-page .login-error-message{
+  width: 350px;
+  color:red; 
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-page .login-success-message{
+  width: 350px;
+  color:green; 
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-page .login-container{
+  width: 400px;
+  margin-left: auto; 
+  margin-right: auto; 
+
+}
+.login-page .login-container ul {
+  display: table;
+}
+
+.login-page .login-container li {
+  display: table-row;
+}
+
+.login-page .login-container .login-label {
+  display: table-cell;
+  padding:5px;
+}
+
+/*user profile page styles*/
+.user-profile-page .user-profile-container{
+  width: 300px;
+  margin-left: auto; 
+  margin-right: auto; 
+  border:black 1px solid;
+}
+.user-profile-page .user-profile-image{
+  width:300px;
+}
