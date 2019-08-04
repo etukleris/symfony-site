@@ -19,5 +19,7 @@
 
 #pictures
 
+/web/uploads/pictures/profile-pictures/*
+/web/uploads/pictures/uploaded-pictures/*
 
 !.keep
