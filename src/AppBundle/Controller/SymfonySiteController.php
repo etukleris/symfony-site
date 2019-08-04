@@ -30,18 +30,40 @@ class SymfonySiteController extends Controller
         ));
     }
     
+     /**
+     * @Route("/photos/{username}", name="user-photos", requirements={"username"=".+"})
+     */
+    public function photosByUserAction($username, Request $request)
+    {
+        $pictures = $this->getDoctrine()
+          ->getRepository('AppBundle:Pictures')
+          ->findByuseradded($username);
+          
+        return $this->render('SymfonySite/photos/photos.html.twig', array(
+            'pictures' => $pictures
+        ));
+    }
+     /**
+     * @Route("/userprofile", name="user-profile-default")
+     */
+    public function userProfileDefaultAction( Request $request)
+    {
+        return $this->render('SymfonySite/user-profile-page/user-profile.html.twig');
+
+    }
+    
     /**
-     * @Route("/userprofile/{username}", name="userprofile/{username}", requirements={"username"=".+"})
+     * @Route("/userprofile/{username}", name="user-profile", requirements={"username"=".+"})
      */
     public function userProfileAction($username, Request $request)
     {
-        die("Hello world");
-        $pictures = $this->getDoctrine()
-          ->getRepository('AppBundle:Pictures')
-          ->findAll();
+        
+        $userInfo = $this->getDoctrine()
+          ->getRepository('AppBundle:Users')
+          ->findOneByuidusers($username);
           
-        return $this->render('SymfonySite/user-profile-page/user-profile.html.twig', array(
-            'pictures' => $pictures
+        return $this->render('SymfonySite/user-profile-page/user-profile-specific.html.twig', array(
+            'userInfo' => $userInfo
         ));
     }
     

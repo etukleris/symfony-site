@@ -8,64 +8,55 @@ use Doctrine\ORM\Mapping as ORM;
  * Pictures
  *
  * @ORM\Table(name="pictures")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PicturesRepository")
+ * @ORM\Entity
  */
 class Pictures
 {
     /**
-     * @var int
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateadded", type="datetime", nullable=false)
+     */
+    private $dateadded = 'current_timestamp()';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="useradded", type="string", length=100, nullable=true)
+     */
+    private $useradded = 'NULL';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imagename", type="string", length=100, nullable=true)
+     */
+    private $imagename = 'NULL';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cattype", type="string", length=100, nullable=true)
+     */
+    private $cattype = 'NULL';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="catcharacteristics", type="string", length=100, nullable=true)
+     */
+    private $catcharacteristics = 'NULL';
+
+    /**
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateadded", type="datetime")
-     */
-    private $dateadded;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="useradded", type="string", length=255, nullable=true)
-     */
-    private $useradded;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="imagename", type="string", length=255, nullable=true)
-     */
-    private $imagename;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cattype", type="string", length=255, nullable=true)
-     */
-    private $cattype;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="catcharacteristics", type="string", length=255, nullable=true)
-     */
-    private $catcharacteristics;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set dateadded
@@ -186,5 +177,14 @@ class Pictures
     {
         return $this->catcharacteristics;
     }
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

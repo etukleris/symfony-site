@@ -1,0 +1,21 @@
+    {% extends 'SymfonySite/base.html.twig' %}
+    {% block body %}
+        <main class="user-profile-page">
+      <div class="user-profile-container">
+        {% if userInfo.imageUser|default(null) is not null %}
+          
+          <img class="user-profile-image" src="{{ asset('uploads/pictures/uploaded-pictures/'~userInfo.imageuser) }}" onerror="this.onerror=null; this.src='{{asset('uploads/pictures/default/noimage2.png')}}'" alt="User\'s image">
+        {% else %}
+        
+          <img class="user-profile-image" src="{{asset('uploads/pictures/default/noimage2.png')}}" onerror="this.onerror=null; this.src='{{asset('uploads/pictures/default/noimage2.png')}}'" alt="User\'s image">
+  
+        {% endif %}
+      
+        <p>Username: {{userInfo.uidUsers}}</p>
+        <p>Time created: {{userInfo.timeCreated|date('F j, Y')}}</p>
+         <p><a href="{{ path('user-photos',{'username':userInfo.uidUsers})}}">User's photos</a></p>
+
+      </div>
+    </main>
+
+    {% endblock %}

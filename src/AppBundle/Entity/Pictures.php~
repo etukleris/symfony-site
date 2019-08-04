@@ -1,0 +1,61 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pictures
+ *
+ * @ORM\Table(name="pictures")
+ * @ORM\Entity
+ */
+class Pictures
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateadded", type="datetime", nullable=false)
+     */
+    private $dateadded = 'current_timestamp()';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="useradded", type="string", length=100, nullable=true)
+     */
+    private $useradded = 'NULL';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imagename", type="string", length=100, nullable=true)
+     */
+    private $imagename = 'NULL';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cattype", type="string", length=100, nullable=true)
+     */
+    private $cattype = 'NULL';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="catcharacteristics", type="string", length=100, nullable=true)
+     */
+    private $catcharacteristics = 'NULL';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+
