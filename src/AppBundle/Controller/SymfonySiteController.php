@@ -17,27 +17,32 @@ class SymfonySiteController extends Controller
     }
     
      /**
-     * @Route("/testpage/create", name="symfony-site-create")
+     * @Route("/photos", name="photos")
      */
-    public function createAction(Request $request)
+    public function photosAction(Request $request)
     {
-        return $this->render('SymfonySite/create.html.twig');
+        $pictures = $this->getDoctrine()
+          ->getRepository('AppBundle:Pictures')
+          ->findAll();
+          
+        return $this->render('SymfonySite/photos/photos.html.twig', array(
+            'pictures' => $pictures
+        ));
     }
     
-     /**
-     * @Route("/testpage/edit/{id}", name="symfony-site-edit")
+    /**
+     * @Route("/userprofile/{username}", name="userprofile/{username}", requirements={"username"=".+"})
      */
-    public function editAction($id, Request $request)
+    public function userProfileAction($username, Request $request)
     {
-        return $this->render('SymfonySite/edit.html.twig');
-    }
-    
-     /**
-     * @Route("/testpage/details/{id}", name="symfony-site-details")
-     */
-    public function detailsAction($id, Request $request)
-    {
-        return $this->render('SymfonySite/details.html.twig');
+        die("Hello world");
+        $pictures = $this->getDoctrine()
+          ->getRepository('AppBundle:Pictures')
+          ->findAll();
+          
+        return $this->render('SymfonySite/user-profile-page/user-profile.html.twig', array(
+            'pictures' => $pictures
+        ));
     }
     
     //css static pages
@@ -92,3 +97,4 @@ class SymfonySiteController extends Controller
         return $this->render('SymfonySite/dummy.html.twig');
     }
 }
+

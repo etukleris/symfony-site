@@ -1,0 +1,21 @@
+{% extends 'SymfonySite/base.html.twig' %}
+{% block body %}
+  <main class="photos-page">
+    <div class="posts-container">
+      {% for picture in pictures %}
+          <div class="post-images">
+            <img class="user-image" src="{{ asset('uploads/pictures/uploaded-pictures/'~picture.imagename) }}" onerror="this.onerror = null; this.src='{{asset('uploads/pictures/default/noimage2.png')}}' " alt="User's image">
+            <div class="hover-image-container">
+              <p class="hover-image-text"> <a href="{{'http://localhost/symfony-site/web/app_dev.php/userprofile/'~picture.useradded~''}}"> {{picture.useradded}}</a>'s image.Cat type: '{{ picture.cattype }}<br>
+              {% if picture.cattype == "NULL" %}
+                Cat characteristics: Regular </p>
+              {% else %}
+                {{ picture.catcharacteristics }}
+              {% endif %}
+            </div>
+          </div> 
+     {% endfor %}  
+    </div>
+  </main>
+{% endblock %}
+    

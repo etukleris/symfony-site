@@ -14,6 +14,6 @@ Basic install/setup would be:
 
 -run xampp (apache module);
 
--access site at http://localhost/symfony-site/web/
+-access site at http://localhost/symfony-site/web/app_dev.php/index (as it's dev environment);
 
 The base site address & path could further be changed within apache config to make site address more appealing.
