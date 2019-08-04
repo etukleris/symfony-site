@@ -19,7 +19,7 @@
 
 #pictures
 
-symfony-site/web/uploads/pictures/profile-pictures/*
-symfony-site/web/uploads/pictures/uploaded-pictures/*
+web/uploads/pictures/profile-pictures/*
+web/uploads/pictures/uploaded-pictures/*
 
 !.keep
