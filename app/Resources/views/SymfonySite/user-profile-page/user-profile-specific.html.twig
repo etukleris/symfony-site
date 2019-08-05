@@ -10,11 +10,13 @@
           <img class="user-profile-image" src="{{asset('uploads/pictures/default/noimage2.png')}}" onerror="this.onerror=null; this.src='{{asset('uploads/pictures/default/noimage2.png')}}'" alt="User\'s image">
   
         {% endif %}
-      
-        <p>Username: {{userInfo.uidUsers}}</p>
-        <p>Time created: {{userInfo.timeCreated|date('F j, Y')}}</p>
-         <p><a href="{{ path('user-photos',{'username':userInfo.uidUsers})}}">User's photos</a></p>
-
+        {% if userInfo %}
+          <p>Username: {{userInfo.uidUsers}}</p>
+          <p>Time created: {{userInfo.timeCreated|date('F j, Y')}}</p>
+          <p><a href="{{ path('user-photos',{'username':userInfo.uidUsers})}}">User's photos</a></p>
+        {% else %}
+          NO SUCH USER EXISTS 
+        {% endif %}
       </div>
     </main>
 
