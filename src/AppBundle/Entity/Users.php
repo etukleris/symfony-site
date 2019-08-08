@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Users
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="users")
  * @ORM\Entity
  */
-class Users
+class Users implements UserInterface, \Serializable
 {
     /**
      * @var string
@@ -187,4 +188,57 @@ class Users
     {
         return $this->idusers;
     }
+    
+    //abstract classes
+    private $salt = null;
+    public function __construct()
+    {
+        //$this->isActive = true;
+        // may not be needed, see section on salt below
+        $this->salt = md5(uniqid('', true));
+    }
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+    }
+    public function getPassword()
+    {
+        return $this->pwdusers;
+    }
+    public function getUsername()
+    {
+        return $this->uidusers;
+    }
+    
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize([
+            $this->idusers,
+            $this->uidusers,
+            $this->pwdusers,
+          
+            $this->salt
+        ]);
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->idusers,
+            $this->uidusers,
+            $this->pwdusers,
+           
+            $this->salt
+        ) = unserialize($serialized, ['allowed_classes' => false]);
+    }
+    public function getSalt(){
+      return $this->salt;
+    }
+    
 }

@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class SymfonySiteController extends Controller
 {
@@ -117,6 +118,15 @@ class SymfonySiteController extends Controller
     public function dummypageAction(Request $request)
     {
         return $this->render('SymfonySite/dummy.html.twig');
+    }
+    
+    //test authentication page
+     /**
+     * @Route("/admin")
+     */
+    public function adminAction()
+    {
+        return new Response('<html><body>Admin page!</body></html>');
     }
 }
 
