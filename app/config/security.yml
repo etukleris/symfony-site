@@ -25,8 +25,11 @@ security:
                 login_path: login
                 check_path: login
                 default_target_path: site-index
+            logout:
+                path:   /logout
+                target: site-index
             
 
-    access_control:
+    #access_control:
         # require ROLE_ADMIN for /admin*
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        #- { path: ^/admin, roles: ROLE_ADMIN }

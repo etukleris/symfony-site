@@ -2,7 +2,11 @@
     {% extends 'SymfonySite/base.html.twig' %}
     {% block body %}
       <main>
-        hello world again
+        {% if app.user %}
+          # user is logged in
+        {% else %}
+          # user is not logged in
+        {% endif %}
       </main>
     {% endblock %}
     

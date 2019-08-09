@@ -3,23 +3,28 @@
       <h1>Titlerooni, checking out the basics</h1>
       <nav>
         <div class="navbar">
-          <a href="{{ url('site-index') }}">Home</a>
-          <a href="{{ url('photos') }}">Photos</a>
+          <a href="{{ path('site-index') }}">Home</a>
+          <a href="{{ path('photos') }}">Photos</a>
           <div class="dropdown">
             <button class="dropbtn">CSS tests 
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="{{ url('css1page') }}">Css1</a>
-              <a href="{{ url('css2page') }}">Css2</a>
-              <a href="{{ url('css3page') }}">Css3</a>
-              <a href="{{ url('css4page') }}">Css4</a>
-              <a href="{{ url('css5page') }}">Css5</a>
-              <a href="{{ url('css6page') }}">Css6</a>
+              <a href="{{ path('css1page') }}">Css1</a>
+              <a href="{{ path('css2page') }}">Css2</a>
+              <a href="{{ path('css3page') }}">Css3</a>
+              <a href="{{ path('css4page') }}">Css4</a>
+              <a href="{{ path('css5page') }}">Css5</a>
+              <a href="{{ path('css6page') }}">Css6</a>
             </div>
           </div> 
-          <a href="{{ url('dummypage') }}">Dummy page</a>
-
+          <a href="{{ path('dummypage') }}">Dummy page</a>
+              {% if app.user %}
+                <a href="{{ path('logout') }}" style="float:right;">Logout</a>
+                <a href="{{  path('user-profile', {'username':app.user.username}) }}" style="float:right;">Profile</a>
+              {% else %}
+                <a href="{{ path('login') }}" style="float:right;">Login</a>
+              {% endif %}
        </div>
       </nav>
     </header>
