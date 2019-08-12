@@ -7,25 +7,34 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * Users
  *
  * @ORM\Table(name="users")
  * @ORM\Entity
+ * @UniqueEntity(
+ * fields={"uidusers"},
+ * message="This username is already taken"
+ * )
+ * @UniqueEntity(
+ * fields={"emailusers"},
+ * message="This email is already taken"
+ * )
  */
 class Users implements UserInterface, \Serializable
 {
     /**
      * @var string
      *
-     * @ORM\Column(name="uidUsers", type="text", length=255, nullable=false)
+     * @ORM\Column(name="uidUsers", type="text", length=255, nullable=false, unique=true)
      */
     private $uidusers;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="emailUsers", type="text", length=255, nullable=false)
+     * @ORM\Column(name="emailUsers", type="text", length=255, nullable=false, unique=true)
      */
     private $emailusers;
 
