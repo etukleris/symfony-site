@@ -3,7 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Users
@@ -189,6 +191,22 @@ class Users implements UserInterface, \Serializable
         return $this->idusers;
     }
     
+    /**
+     * @Assert\NotBlank
+     * @Assert\Length(max=4096)
+     */
+    private $plainPassword;
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+
     //abstract classes
     private $salt = null;
     public function __construct()
@@ -196,6 +214,7 @@ class Users implements UserInterface, \Serializable
         //$this->isActive = true;
         // may not be needed, see section on salt below
         $this->salt = md5(uniqid('', true));
+        $this->timecreated = (new \DateTime());
     }
     public function getRoles()
     {
