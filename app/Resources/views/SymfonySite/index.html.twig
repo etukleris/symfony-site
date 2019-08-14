@@ -1,12 +1,44 @@
 
     {% extends 'SymfonySite/base.html.twig' %}
+    
+    {% block title %}
+      Page index
+    {% endblock %}
+    
     {% block body %}
-      <main>
+    
+      <main class="index-page">
+        
+      <h2>Not just default CatPhotoApp from freecodecamp</h2>
+      <p>Added more pages, user login/signup, db, image upload, headers & footers and so on</p>
+      <p>Still learning and testing basic html, css, some js, db connection etc </p>
+      
+      <p>Click here to view more <a href="https://pixabay.com/images/search/cat/">cat photos</a>.</p>
+      
+      <a href="#"><img src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back." class="thick-green-border smaller-image shadow-test"></a>
+      
+      <div class="div-color-test silver-background div-padding-test">
+        <p>Things cats love:</p>
+        <ul id="ul-first-child-test">
+          <li>cat nip</li>
+          <li>laser pointers</li>
+          <li class="lasagna-li">lasagna</li>
+        </ul>
+        <p>Top 3 things cats hate:</p>
+        <ol>
+          <li>flea treatment</li>
+          <li>thunder</li>
+          <li>other cats</li>
+        </ol>
+      </div>
+      
         {% if app.user %}
-          # user is logged in
+          <p>If you want to upload a file, <a href="{{ path('upload_new_picture') }}">Click here</a> </p>
         {% else %}
-          # user is not logged in
+        
+          <p>You must be logged in to submit cat photos</p>
         {% endif %}
+
       </main>
     {% endblock %}
     

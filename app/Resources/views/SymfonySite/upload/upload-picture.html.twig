@@ -1,0 +1,44 @@
+{% extends 'SymfonySite/base.html.twig' %}  
+{% block body %}
+  <main>
+  {% if app.user %}
+
+  {{ form_start(form) }}
+      {# ... #}
+
+      {{ form_row(form.imagefile) }}
+  
+      {{ form_widget(form.useradded, {'value' : app.user.username}) }}
+      {{ form_row(form.cattype) }}
+
+      <button type="submit">Upload!</button>
+  {{ form_end(form) }}
+  {#
+    <legend> Want to upload an image? Select what best describes your cat: </legend>
+
+    <?php echo form_open_multipart('pages/do_upload');?>
+      <input id="indoor-or-outdoor1" type="radio" name="indoor-outdoor" value="Indoor" checked>
+      <label for="indoor-or-outdoor1">Indoor</label>
+      <input id="indoor-or-outdoor2" type="radio" value="Outdoor" name="indoor-outdoor">
+      <label for="indoor-or-outdoor2" >Outdoor</label><br>
+      
+      <input id="personality1" type="checkbox" name="personality[]" value="Loving" checked>
+      <label for="personality1">Loving</label>
+      <input id="personality2" type="checkbox" name="personality[]" value="Lazy">
+      <label for="personality2">Lazy</label>
+      <input id="personality3" type="checkbox" name="personality[]" value="Energetic">
+      <label for="personality3">Energetic</label><br>
+      
+      <input type="file" name="userfile" size="20" />
+      <input type="hidden" id="cat-submit-username" name="cat-submit-username" value="<?php echo $_SESSION['userId'] ?>">
+    
+    <input type="submit" value="upload" id="cat-submit-button"/>
+
+    </form>
+    #}
+  {% else %}
+        
+    <p>You must be logged in to submit cat photos</p>
+  {% endif %}
+  </main>
+{% endblock %}

@@ -22,30 +22,30 @@ class Pictures
     /**
      * @var string
      *
-     * @ORM\Column(name="useradded", type="string", length=100, nullable=true)
+     * @ORM\Column(name="useradded", type="string", length=100, nullable=false)
      */
-    private $useradded = 'NULL';
+    private $useradded;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="imagename", type="string", length=100, nullable=true)
+     * @ORM\Column(name="imagename", type="string", length=100, nullable=false)
      */
-    private $imagename = 'NULL';
+    private $imagename;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cattype", type="string", length=100, nullable=true)
+     * @ORM\Column(name="cattype", type="string", length=100, nullable=false)
      */
-    private $cattype = 'NULL';
+    private $cattype;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="catcharacteristics", type="string", length=100, nullable=true)
+     * @ORM\Column(name="catcharacteristics", type="string", length=100, nullable=false)
      */
-    private $catcharacteristics = 'NULL';
+    private $catcharacteristics;
 
     /**
      * @var integer
@@ -186,5 +186,13 @@ class Pictures
     public function getId()
     {
         return $this->id;
+    }
+    
+    
+    public function __construct()
+    {
+        //$this->isActive = true;
+        // may not be needed, see section on salt below
+        $this->dateadded = (new \DateTime());
     }
 }

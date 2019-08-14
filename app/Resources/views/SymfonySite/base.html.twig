@@ -2,13 +2,13 @@
 
 <html>
     <head>
-      {% block head %}
+
         <link rel="stylesheet" href="{{ asset('css/mainstyles.css') }}"/>
         <link rel="stylesheet" href="{{ asset('css/header-and-footer.css') }}"/>
   
         <meta charset="UTF-8" />
-        <title>{% block title %}{% endblock %}</title>
-      {% endblock %}
+        <title>{% block title %}Symfony test site{% endblock %}</title>
+
     </head>
     <body onload=display_ct()>
       {% block header %}
