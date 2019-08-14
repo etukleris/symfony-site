@@ -163,7 +163,11 @@ class Pictures
      */
     public function setCatcharacteristics($catcharacteristics)
     {
-        $this->catcharacteristics = $catcharacteristics;
+        if (is_array ( $catcharacteristics )){
+          $this->catcharacteristics = implode( ", ", $catcharacteristics );
+        } else { 
+          $this->catcharacteristics = $catcharacteristics;
+        }
 
         return $this;
     }

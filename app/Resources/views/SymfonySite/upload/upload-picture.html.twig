@@ -10,6 +10,7 @@
   
       {{ form_widget(form.useradded, {'value' : app.user.username}) }}
       {{ form_row(form.cattype) }}
+      {{ form_row(form.catcharacteristics) }}
 
       <button type="submit">Upload!</button>
   {{ form_end(form) }}

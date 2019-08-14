@@ -27,6 +27,15 @@ class ImageUpload extends AbstractType
                     'Outdoor' => 'Outdoor',
                 ],
             ])
+            ->add('catcharacteristics', ChoiceType::class, [
+              'choices' =>[
+                'Loving' => 'Loving',
+                'Lazy' => 'Lazy',
+                'Energetic' => 'Energetic',
+                ],
+              'multiple'=> true,
+              'expanded'=>true,
+            ])
             ->add('imagefile', FileType::class, [
                 'label' => 'Image',
 
