@@ -164,7 +164,13 @@ class Pictures
     public function setCatcharacteristics($catcharacteristics)
     {
         if (is_array ( $catcharacteristics )){
-          $this->catcharacteristics = implode( ", ", $catcharacteristics );
+          $tmpCatChars = implode( ", ", $catcharacteristics );
+          if ($tmpCatChars == "" or $tmpCatChars == "NULL"){
+            $this->catcharacteristics = null;
+          }
+          else {
+            $this->catcharacteristics = $tmpCatChars;
+          }
         } else { 
           $this->catcharacteristics = $catcharacteristics;
         }
