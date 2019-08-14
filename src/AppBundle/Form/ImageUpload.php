@@ -23,7 +23,7 @@ class ImageUpload extends AbstractType
             ->add('useradded', HiddenType::class)
             ->add('cattype', ChoiceType::class, [
                 'choices'  => [
-                    'Indoor' => 'indoor',
+                    'Indoor' => 'Indoor',
                     'Outdoor' => 'Outdoor',
                 ],
             ])
