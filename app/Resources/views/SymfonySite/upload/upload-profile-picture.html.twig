@@ -1,4 +1,11 @@
 
 
-  <p> Hello this is YOUR profile </p>
+  <p>Do you want to change your profile picture?</p>
+    {{ form_start(form) }}
+      {# ... #}
+
+      {{ form_row(form.imagefile) }}
+ 
+      <button type="submit">Upload!</button>
+  {{ form_end(form) }}
 

@@ -224,6 +224,7 @@ class Users implements UserInterface, \Serializable
         // may not be needed, see section on salt below
         $this->salt = md5(uniqid('', true));
         $this->timecreated = (new \DateTime());
+        $this->plainPassword = "tmp";
     }
     public function getRoles()
     {

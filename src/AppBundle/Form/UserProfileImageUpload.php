@@ -1,7 +1,7 @@
 <?php
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Pictures;
+use AppBundle\Entity\Users;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -9,33 +9,20 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 
 
-class ImageUpload extends AbstractType
+class UserProfileImageUpload extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
             // ...
-            ->add('useradded', HiddenType::class)
-            ->add('cattype', ChoiceType::class, [
-                'choices'  => [
-                    'Indoor' => 'Indoor',
-                    'Outdoor' => 'Outdoor',
-                ],
-            ])
-            ->add('catcharacteristics', ChoiceType::class, [
-              'choices' =>[
-                'Loving' => 'Loving',
-                'Lazy' => 'Lazy',
-                'Energetic' => 'Energetic',
-                ],
-              'multiple'=> true,
-              'expanded'=>true,
-            ])
             ->add('imagefile', FileType::class, [
                 'label' => 'Image',
 
@@ -65,7 +52,7 @@ class ImageUpload extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Pictures::class,
+            'data_class' => Users::class,
         ]);
     }
 }

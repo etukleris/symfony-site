@@ -5,7 +5,7 @@
         <div class="user-profile-container">
           {% if userInfo.imageUser|default(null) is not null %}
             
-            <img class="user-profile-image" src="{{ asset('uploads/pictures/uploaded-pictures/'~userInfo.imageuser) }}" onerror="this.onerror=null; this.src='{{asset('uploads/pictures/default/noimage2.png')}}'" alt="User\'s image">
+            <img class="user-profile-image" src="{{ asset('uploads/pictures/profile-pictures/'~userInfo.imageuser) }}" onerror="this.onerror=null; this.src='{{asset('uploads/pictures/default/noimage2.png')}}'" alt="User\'s image">
           
           {% else %}
           
@@ -16,7 +16,7 @@
           {% if userInfo %}
             {% if app.user and app.user.username == userInfo.uidUsers %} 
               {{ include('SymfonySite/upload/upload-profile-picture.html.twig') }}
-              {{ app.user.username }}
+
             {% endif %}    
                 
             <p>Username: {{userInfo.uidUsers}}</p>

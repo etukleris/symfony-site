@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Users;
+use AppBundle\Form\UserProfileImageUpload;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -63,9 +65,54 @@ class SymfonySiteController extends Controller
           ->getRepository('AppBundle:Users')
           ->findOneByuidusers($username);
           
+        $user = new Users();
+        $form = $this->createForm(UserProfileImageUpload::class, $user);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imagefile */
+            $imagefile = $form['imagefile']->getData();
+
+
+            // so the image file must be processed only when a file is uploaded
+            if ($imagefile) {
+                $originalFilename = pathinfo($imagefile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                //$safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$imagefile->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $imagefile->move(
+                        $this->getParameter('uploaded_profile_pictures_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'file name' property to store the image name
+                // instead of its contents
+                $userInfo->setImageuser($newFilename);
+                
+            }
+            //$user->setUseradded($form->get('useradded')->getData());
+            // ... merge the $user variable or any other work
+            // 4) save the user!
+            $entityManager = $this->getDoctrine()->getManager();
+            //$entityManager->merge($user);
+            
+            //*/
+            $userInfo->setImageuser($newFilename);
+            $entityManager->flush();
+            return $this->redirect($request->getRequestUri());
+        }
+        
         return $this->render('SymfonySite/user-profile-page/user-profile-specific.html.twig', array(
-            'userInfo' => $userInfo
+            'userInfo' => $userInfo,
+            'form' => $form->createView()
         ));
+        
     }
     
     //css static pages
