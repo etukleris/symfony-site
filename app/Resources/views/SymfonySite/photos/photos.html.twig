@@ -6,10 +6,16 @@
           <div class="post-images">
             <img class="user-image" src="{{ asset('uploads/pictures/uploaded-pictures/'~picture.imagename) }}" onerror="this.onerror = null; this.src='{{asset('uploads/pictures/default/noimage2.png')}}' " alt="User's image">
             <div class="hover-image-container">
-              {% if picture.useradded is not null %}
+              {% if picture.useradded is not null and picture.useradded != "NULL" %}
                 <p class="hover-image-text"> <a href="{{ path('user-profile',{'username':picture.useradded})}}"> {{picture.useradded}}</a>'s image.Cat type: {{ picture.cattype }}<br>
               {% else %}
-               <p class="hover-image-text">  {{picture.useradded}}</a>'s image.Cat type: {{ picture.cattype }}<br>
+               <p class="hover-image-text">  removed user's image.
+               Cat type: 
+                {% if picture.cattype is null or picture.cattype == "NULL" %} 
+                  Not specifieed.
+                {% else %}
+                  {{ picture.cattype }}<br>
+                {% endif %}
               {% endif %}
               {% if picture.catcharacteristics == "NULL" or picture.catcharacteristics =="" %}
                 Cat characteristics: Regular </p>
