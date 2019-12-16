@@ -351,21 +351,35 @@ p {
   display: table;
 }
 
-.signup-page .signup-container li {
+.signup-page .signup-container ul li {
   display: table-row;
-  
-  margin-left:10px;
+
 
 }
 
-.signup-page .signup-container label {
+.signup-page .signup-container .signup-li {
 
-  margin-left:5px;
-  padding: 3px;
-  display: block;
+ margin: 1000px;
+ padding: 3px;
+
+}
+.signup-page .signup-container .signup-td {
+
+ padding: 2px;
+
+}
+.signup-page .signup-container .signup-label {
   float: left;
   width : 120px; 
 }
+
+.signup-page .signup-container .signup-input {
+  margin-left: 5px;
+  display: block;
+  float: right;
+  width : 120px; 
+}
+
 
 /*login page styles*/
 

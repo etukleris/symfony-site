@@ -4,20 +4,34 @@
 	<div class="signup-container">
     {{ form_start(form) }}
 		<ul>
-            <li>
-				{{ form_row(form.uidusers) }}
+            <li class="signup-li">
+				<div class="signup-td">
+					{{ form_label(form,'Username',{'label_attr': {'class': 'signup-label'}}) }}
+					{{ form_widget(form.uidusers, {'attr': {'class': 'signup-input'}}) }}
+				</div>
             </li>
-            <li>
-				{{ form_row(form.emailusers) }}
+            <li class="signup-li">
+				<div class="signup-td">
+					{{ form_label(form,'Email',{'label_attr': {'class': 'signup-label'}}) }}
+					{{ form_widget(form.emailusers, {'attr': {'class': 'signup-input'}}) }}
+				</div>
             </li>
-            <li>
-				{{ form_row(form.plainPassword.first) }}
+            <li class="signup-li">
+				<div class="signup-td">
+					{{ form_label(form,'Password',{'label_attr': {'class': 'signup-label'}}) }}
+					{{ form_widget(form.plainPassword.first, {'attr': {'class': 'signup-input'}}) }}
+				</div>
             </li>
-            <li>
-				{{ form_row(form.plainPassword.second) }}
-            </li>
-            <li>
-				<button type="submit">Register!</button>
+            <li class="signup-li">
+				<div class="signup-td">
+					{{ form_label(form,'Repeat password',{'label_attr': {'class': 'signup-label'}}) }}
+					{{ form_widget(form.plainPassword.second, {'attr': {'class': 'signup-input'}}) }}
+				</div>
+            </li >
+            <li class="signup-li">
+				<div class="signup-td">
+					<button type="submit">Register!</button>
+				</div>
             </li>
 		</ul>
         
