@@ -1,14 +1,28 @@
 {% extends 'SymfonySite/base.html.twig' %}
 {% block body %}
-  <main>
+  <main class="signup-page">
+	<div class="signup-container">
     {{ form_start(form) }}
-
-        {{ form_row(form.uidusers) }}
-        {{ form_row(form.emailusers) }}
-        {{ form_row(form.plainPassword.first) }}
-        {{ form_row(form.plainPassword.second) }}
-
-        <button type="submit">Register!</button>
+		<ul>
+            <li>
+				{{ form_row(form.uidusers) }}
+            </li>
+            <li>
+				{{ form_row(form.emailusers) }}
+            </li>
+            <li>
+				{{ form_row(form.plainPassword.first) }}
+            </li>
+            <li>
+				{{ form_row(form.plainPassword.second) }}
+            </li>
+            <li>
+				<button type="submit">Register!</button>
+            </li>
+		</ul>
+        
     {{ form_end(form) }}
+	 
+	</div>
   </main>
 {% endblock %}

@@ -5,19 +5,34 @@
 {% endblock %}
     
 {% block body %}
-  <main>
+  <main class="login-page">
     {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div >{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+    <form class="login-container" action="{{ path('login') }}" method="post">
+		<ul>
+            <li>
+                
+				<label for="username" class="login-label">Username:</label>
+				<input type="text" id="username" name="_username" value="{{ last_username }}"/><br />
+            </li>
+            <li>
+				  
+				<label for="password" class="login-label">Password:</label>
+				<input type="password" id="password" name="_password"/>        
+			   
+            </li>
+            <li>
+				<button type="submit">login</button>
+            </li>
+         </ul>
+		  
+		  
+		
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>        
-        <button type="submit">login</button>
+		 <p>Don't have an account? You can sign up <a href="{{ path('user_signup') }}">here</a></p>
     </form>
-    <p>Don't have an account? You can sign up <a href="{{ path('user_signup') }}">here</a></p>
+   
   </main>
 {% endblock %}
